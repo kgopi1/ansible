@@ -1,0 +1,27 @@
+---
+- name: Install and start Nginx on an Azure virtual machine
+  hosts: host01
+  become: yes
+  tasks:
+  - name: install nginx
+    apt:
+      name: nginx
+      state: installed
+    notify: start nginx
+
+  - name: install postgresql
+    apt:
+      name: postgresql
+      state: installed
+    notify: start postgresql
+
+  handlers:
+  - name: start nginx
+    service:
+       name: nginx
+       state: started
+
+  - name: start postgresql
+    service:
+      name: postgresql
+      state: started

@@ -1,0 +1,14 @@
+---
+# tasks file for minikube
+- name: to download the minikube
+  get_url:
+    url: https://storage.googleapis.com/minikube/releases/v0.28.1/minikube-linux-amd64
+    dest: /usr/local/bin/minikube
+
+- name: Change it to executable file
+  command: chmod +x minikube
+  args:
+    chdir: /usr/local/bin/
+
+## for mac - use the below url
+    #https://github.com/kubernetes/minikube/releases/download/v0.32.0/minikube-darwin-amd64

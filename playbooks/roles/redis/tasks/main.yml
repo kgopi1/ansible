@@ -1,0 +1,7 @@
+---
+# tasks file for redis
+- name: install the redis-server
+  apt:
+    pkg: redis-server
+    update_cache: yes
+    state: present

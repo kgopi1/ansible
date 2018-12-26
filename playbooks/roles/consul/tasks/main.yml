@@ -1,0 +1,10 @@
+---
+- name : Get the os version of the host
+  debug:
+    msg: "Hostname {{ inventory_hostname }} is Redhost OS"
+  when: ansible_os_family == "Redhat"
+
+- name : Get the os2 version of the host
+  debug:
+    msg: "Hostname {{ inventory_hostname }} is Debian OS"
+  when: ansible_os_family == "Debian"

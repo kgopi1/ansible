@@ -1,0 +1,28 @@
+---
+# tasks file for k8
+- name : adding the k8 gpg KEY
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+
+- name: install transport-https
+  apt:
+    pkg: apt-transport-https
+    update_cache: yes
+    state: latest
+
+- name: create k8 list
+  file:
+    path: /etc/apt/sources.list.d/kubernetes.list
+    state: touch
+
+- name: adding the apt_repository
+  apt_repository:
+    repo: deb http://apt.kubernetes.io kubernetes-xenial main
+    state: present
+
+- name: install the kubectl
+  apt:
+    pkg: kubectl
+    update_cache: yes
+    state: present

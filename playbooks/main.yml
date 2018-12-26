@@ -1,0 +1,13 @@
+## playbook execution - ansible-playbook -i hosts main.yml -vvv
+---
+- name: to install the specific role
+  hosts: localhost
+  become: true
+  gather_facts: yes
+  roles:
+#    - kubectl
+     - minikube
+#    - java
+#    - logstash
+#    - consul
+#     - redis

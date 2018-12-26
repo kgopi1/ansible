@@ -1,0 +1,9 @@
+[host01]
+192.168.56.102 ansible_ssh_user=docker
+
+[centos]
+192.168.56.101 
+
+[all]
+192.168.56.101 ansible_ssh_user=root
+192.168.56.102 ansible_ssh_user=docker

@@ -1,0 +1,15 @@
+---
+- name: adding the GPG key
+  apt_key:
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    state: present
+- name: adding the repo
+  apt_repository:
+    repo: deb https://artifacts.elastic.co/packages/5.x/apt stable main
+    state: present
+
+- name: installing the logstash
+  apt:
+    pkg: logstash
+    update_cache: yes
+    state: latest
